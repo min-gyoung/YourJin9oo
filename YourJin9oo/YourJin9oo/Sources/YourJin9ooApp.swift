@@ -15,9 +15,7 @@ struct YourJin9ooApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                ContentView()
-            }
+            RequestHelpView()
         }
     }
 }
