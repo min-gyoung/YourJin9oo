@@ -7,7 +7,7 @@ let project = Project(
             name: "YourJin9oo",
             destinations: .iOS,
             product: .app,
-            bundleId: "io.tuist.YourJin9oo",
+            bundleId: "io.YourJin9oo",
             infoPlist: .extendingDefault(
                 with: [
                     "UILaunchScreen": [
