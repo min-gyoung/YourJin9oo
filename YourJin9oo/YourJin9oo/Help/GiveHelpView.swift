@@ -94,7 +94,6 @@ public struct GiveHelpView: View {
                     }
                 }
             }
-            Spacer()
         }
     }
     
