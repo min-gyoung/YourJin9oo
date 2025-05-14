@@ -10,15 +10,14 @@ import SwiftUI
 struct RequestHelpView: View {
     
     var body: some View {
-        
-        Spacer()
-        
+            
         VStack {
             Text("도움 요청")
                 .font(.system(size: 28, weight: .bold))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
                 .padding(.bottom, 16)
+                .padding(.top, 20)
             
             Text("🚨 매칭 대기중...")
                 .font(.system(size: 20, weight: .bold))
