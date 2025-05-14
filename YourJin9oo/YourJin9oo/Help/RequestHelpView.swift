@@ -12,15 +12,13 @@ struct RequestHelpView: View {
     var body: some View {
         VStack {
             Text("도움 요청")
-                .font(.system(size: 28))
-                .fontWeight(.bold)
+                .font(.system(size: 28, weight: .bold))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
                 .padding(.bottom, 16)
             
             Text("🚨 매칭 대기중...")
-                .font(.system(size: 20))
-                .fontWeight(.bold)
+                .font(.system(size: 20, weight: .bold))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
             
@@ -44,8 +42,7 @@ struct RequestHelpView: View {
                         .padding(.leading, 40)
                         
                         Text("심심한 사람?")
-                            .font(.system(size: 16))
-                            .fontWeight(.semibold)
+                            .font(.system(size: 16, weight: .semibold))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 5)
                         
@@ -85,65 +82,76 @@ struct RequestHelpView: View {
             Divider()
             
             Text("내 질문")
-                .font(.system(size: 28))
-                .fontWeight(.bold)
+                .font(.system(size: 28, weight: .bold))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
                 .padding(.top, 18)
                 .padding(.bottom, 16)
             
-            ZStack(alignment: .leading) {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.gray)
-                    .frame(height: 140)
-                    .padding(.leading, 20)
-                    .padding(.trailing, 20)
-                
-                VStack {
-                    HStack {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 4)
-                                .fill(Color.blue)
-                                .frame(width: 54, height: 20)
+            ScrollView {
+                ZStack(alignment: .leading) {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.gray)
+                        .frame(height: 140)
+                        .padding(.leading, 20)
+                        .padding(.trailing, 20)
+                    
+                    VStack {
+                        HStack {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 4)
+                                    .fill(Color.blue)
+                                    .frame(width: 54, height: 20)
+                                
+                                Text("매칭완")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.white)
+                            }
+                            .padding(.leading, 40)
                             
-                            Text("매칭완")
-                                .font(.system(size: 14))
-                                .foregroundColor(.white)
+                            Text("심심한 사람?")
+                                .font(.system(size: 16, weight: .semibold))
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.leading, 5)
                         }
-                        .padding(.leading, 40)
+                        .padding(.bottom, 5)
                         
-                        Text("심심한 사람?")
-                            .font(.system(size: 16))
-                            .fontWeight(.semibold)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.leading, 5)
-                    }
-                    .padding(.bottom, 5)
-                    
-                    Text("저랑 마크에서 1대1 뜰사람 찾아요\n대신 맨주먹으로 저이기면 특별히 아끼는 ...")
-                        .font(.system(size: 16))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 40)
-                        .padding(.bottom, 3)
-                    
-                    HStack {
-                        Text("1일 전 • 조회 999")
+                        Text("저랑 마크에서 1대1 뜰사람 찾아요\n대신 맨주먹으로 저이기면 특별히 아끼는 ...")
                             .font(.system(size: 16))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 40)
+                            .padding(.bottom, 3)
                         
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.black)
-                                .frame(width: 60, height: 24)
+                        HStack {
+                            Text("1일 전 • 조회 999")
+                                .font(.system(size: 16))
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.leading, 40)
                             
-                            Text("스포츠")
-                                .font(.system(size: 14))
-                                .foregroundColor(.white)
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color.black)
+                                    .frame(width: 60, height: 24)
+                                
+                                Text("스포츠")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.white)
+                            }
+                            .padding(.trailing, 40)
                         }
-                        .padding(.trailing, 40)
                     }
                 }
+            }
+            
+            Button(action: {}) {
+                Text("+ help!")
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundColor(.white)
+                    .frame(width: 150, height: 60)
+                    .background(Color.red)
+                    .cornerRadius(20)
+                    .padding(.leading, 200)
+                    .padding(.bottom, 10)
             }
         }
     }
