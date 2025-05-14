@@ -14,13 +14,13 @@ public struct InterestSelectionView: View {
         Text("당신의 관심분야는 뭔가요?")
             .font(.system(size: 24))
             .fontWeight(.bold)
-            .foregroundColor(Color(hex: "#666666"))
+//            .foregroundColor(Color(hex: "#666666"))
             .padding(.bottom, 10)
             .padding(.top, 100)
         
         Text("다른 사람에게 도움 줄 수 있는\n분야를 골라주세요.")
             .font(.system(size: 14))
-            .foregroundColor(Color(hex: "#666666"))
+//            .foregroundColor(Color(hex: "#666666"))
             .multilineTextAlignment(.center)
         
         Spacer()
@@ -32,7 +32,7 @@ public struct InterestSelectionView: View {
                 } ) {
                     VStack {
                         RoundedRectangle (cornerRadius: 16)
-                            .fill(Color(hex: "#D9D9D9"))
+//                            .fill(Color(hex: "#D9D9D9"))
                             .frame(width: 150, height: 150)
                             .overlay(
                                 Text(interest)
