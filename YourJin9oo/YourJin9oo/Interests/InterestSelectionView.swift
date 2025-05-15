@@ -18,7 +18,11 @@ public struct InterestSelectionView: View {
             .font(.system(size: 24, weight: .bold))
         //            .foregroundColor(Color(hex: "#666666"))
             .padding(.bottom, 10)
+<<<<<<< HEAD
             .padding(.top, 80)
+=======
+            .padding(.top, 100)
+>>>>>>> 152f631 (feat: Interest 버튼 삭제)
         
         Text("다른 사람에게 도움 줄 수 있는\n분야를 골라주세요.")
             .font(.system(size: 14))
@@ -26,6 +30,7 @@ public struct InterestSelectionView: View {
             .multilineTextAlignment(.center)
         
         Spacer()
+<<<<<<< HEAD
         
         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: -60), count: 2), spacing: 15) {
             ForEach(interestList, id: \.name) { interest in
