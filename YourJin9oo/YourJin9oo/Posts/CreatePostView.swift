@@ -55,9 +55,9 @@ struct CreatePostView: View {
                 
                 Spacer()
                 
-                Button(action: {
-                    
-                }) {
+                Button {
+                    //action
+                } label: {
                     Text("작성 완료")
                         .font(.system(size: 20, weight: .bold))
                         .foregroundColor(.white)
