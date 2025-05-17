@@ -8,6 +8,8 @@
 import SwiftUI
 
 public struct InterestSelectionView: View {
+    let interestList = ["스포츠", "맛집", "생활", "배움", "취미", "건강"]
+    
     public var body: some View {
         Text("당신의 관심분야는 뭔가요?")
             .font(.system(size: 24))
@@ -22,25 +24,22 @@ public struct InterestSelectionView: View {
             .multilineTextAlignment(.center)
         
         Spacer()
-        Button(action: {
-            // 누르면 버튼이 사라져야 함
-        } ) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(Color.clear)
-                    .stroke(Color(hex: "#666666"))
-                    .frame(width: 90, height: 30)
-                
-                HStack{
-                    Text("스포츠")
-                        .font(.system(size: 16))
-                        .foregroundColor(Color(hex: "#666666"))
-                    
-                    Image(systemName: "xmark")
-                        .font(.system(size: 14))
-                        .foregroundColor(Color(hex: "#666666"))
+        
+        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: -60), count: 2), spacing: 15) {
+            ForEach(interestList, id: \.self) { interest in
+                Button(action: {
+                    print("\(interest)")
+                } ) {
+                    VStack {
+                        RoundedRectangle (cornerRadius: 16)
+                            .fill(Color(hex: "#D9D9D9"))
+                            .frame(width: 150, height: 150)
+                            .overlay(
+                                Text(interest)
+                                    .foregroundColor(.black)
+                            )
+                    }
                 }
-                
             }
         }
         Spacer()
