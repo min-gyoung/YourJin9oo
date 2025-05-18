@@ -19,7 +19,15 @@ let project = Project(
             ),
             sources: ["YourJin9oo/Sources/**"],
             resources: ["YourJin9oo/Resources/**"],
-            dependencies: []
+            dependencies: [],
+            settings: .settings(
+              base: ["DEVELOPMENT_TEAM": "CCQV8W4QU6",
+                     "CODE_SIGN_IDENTITY": "Apple Development",
+                     "CODE_SIGN_STYLE": "Manual",
+                     "PROVISIONING_PROFILE_SPECIFIER": "jingoov2"],
+              configurations: [],
+              defaultSettings: .recommended
+            )
         ),
         .target(
             name: "YourJin9ooTests",
