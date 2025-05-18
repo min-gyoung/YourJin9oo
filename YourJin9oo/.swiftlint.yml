@@ -1,0 +1,67 @@
+//
+//  .swiftlint.yml
+//  YourJin9oo
+//
+//  Created by 김민경 on 5/18/25.
+//
+
+disabled_rules:
+  - file_length
+  - cyclomatic_complexity
+  - identifier_name
+
+opt_in_rules:
+  - attributes
+  - empty_count
+  - explicit_init
+  - vertical_parameter_alignment
+  - unused_declaration
+  - discouraged_optional_boolean
+
+included:
+  - YourJin9oo
+
+excluded:
+  - Pods
+  - Carthage
+  - YourJin9ooTests
+  - YourJin9ooUITests
+
+line_length:
+  warning: 120
+  error: 200
+  ignores_comments: true
+
+function_body_length:
+  warning: 50
+  error: 100
+
+type_body_length:
+  warning: 400
+  error: 600
+
+force_cast: error
+force_try: error
+force_unwrapping: error
+
+trailing_whitespace: warning
+comment_spacing: warning
+sorted_imports: warning
+modifier_order: warning
+return_arrow_whitespace: warning
+
+type_name:
+  min_length: 2
+  max_length:
+    warning: 40
+    error: 50
+  excluded:
+    - ID
+
+identifier_name:
+  excluded:
+    - id
+    - URL
+
+redundant_optional_initialization: warning
+explicit_top_level_acl: warning
