@@ -11,6 +11,7 @@ let project = Project(
             deploymentTargets: .iOS("17.0"),
             infoPlist: .extendingDefault(
                 with: [
+                  "UIUserInterfaceStyle": "Light",
                     "UILaunchScreen": [
                         "UIColorName": "",
                         "UIImageName": "",
