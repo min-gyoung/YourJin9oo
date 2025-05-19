@@ -18,11 +18,7 @@ public struct InterestSelectionView: View {
             .font(.system(size: 24, weight: .bold))
         //            .foregroundColor(Color(hex: "#666666"))
             .padding(.bottom, 10)
-<<<<<<< HEAD
             .padding(.top, 80)
-=======
-            .padding(.top, 100)
->>>>>>> 152f631 (feat: Interest 버튼 삭제)
         
         Text("다른 사람에게 도움 줄 수 있는\n분야를 골라주세요.")
             .font(.system(size: 14))
@@ -35,25 +31,30 @@ public struct InterestSelectionView: View {
         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: -60), count: 2), spacing: 15) {
             ForEach(interestList, id: \.name) { interest in
                 Button(action: {
-                    selectedInterests[interest.name] = !(selectedInterests[interest.name] ?? false)
-                }) {
-                    ZStack {
-                        RoundedRectangle (cornerRadius: 16)
-                        //                                .fill(Color.gray)
-                            .fill(selectedInterests[interest.name] == true ? Color.yellow : Color.gray)
-                        //                            .fill(Color(hex: "#D9D9D9"))
-                            .frame(width: 150, height: 150)
-                        
-                        VStack {
-                            Image(systemName: interest.icon)
-                                .resizable()
-                                .scaledToFit()
-                                .foregroundColor(Color.white)
-                                .frame(width: 60, height: 60)
+                    print("\(interest.name)")
+                } ) {
+                    VStack {
+                        ZStack {
+                            RoundedRectangle (cornerRadius: 16)
+                                .fill(Color.gray)
+                            //                            .fill(Color(hex: "#D9D9D9"))
+                                .frame(width: 150, height: 150)
+                            //                            .overlay(
+                            //                                Text(interest)
+                            //                                    .foregroundColor(.black)
+                            //                            )
                             
-                            Text(interest.name)
-                                .font(.system(size: 20, weight: .bold))
-                                .foregroundColor(.white)
+                            VStack {
+                                Image(systemName: interest.icon)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .foregroundColor(Color.white)
+                                    .frame(width: 60, height: 60)
+                                
+                                Text(interest.name)
+                                    .font(.system(size: 20, weight: .bold))
+                                    .foregroundColor(.white)
+                            }
                         }
                     }
                 }
