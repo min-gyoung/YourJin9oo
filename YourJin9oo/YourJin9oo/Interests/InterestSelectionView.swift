@@ -17,6 +17,8 @@ public struct InterestSelectionView: View {
         ("건강", "heart.fill")
     ]
     
+    @State private var selectedInterests: [String: Bool] = [:]
+    
     public var body: some View {
         Text("당신의 관심분야는 뭔가요?")
             .font(.system(size: 24, weight: .bold))
@@ -34,34 +36,43 @@ public struct InterestSelectionView: View {
         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: -60), count: 2), spacing: 15) {
             ForEach(interestList, id: \.name) { interest in
                 Button(action: {
-                    print("\(interest.name)")
-                } ) {
-                    VStack {
-                        ZStack {
-                            RoundedRectangle (cornerRadius: 16)
-                                .fill(Color.gray)
-                            //                            .fill(Color(hex: "#D9D9D9"))
-                                .frame(width: 150, height: 150)
-                            //                            .overlay(
-                            //                                Text(interest)
-                            //                                    .foregroundColor(.black)
-                            //                            )
+                    selectedInterests[interest.name] = !(selectedInterests[interest.name] ?? false)
+                }) {
+                    ZStack {
+                        RoundedRectangle (cornerRadius: 16)
+                        //                                .fill(Color.gray)
+                            .fill(selectedInterests[interest.name] == true ? Color.yellow : Color.gray)
+                        //                            .fill(Color(hex: "#D9D9D9"))
+                            .frame(width: 150, height: 150)
+                        
+                        VStack {
+                            Image(systemName: interest.icon)
+                                .resizable()
+                                .scaledToFit()
+                                .foregroundColor(Color.white)
+                                .frame(width: 60, height: 60)
                             
-                            VStack {
-                                Image(systemName: interest.icon)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .foregroundColor(Color.white)
-                                    .frame(width: 60, height: 60)
-                                
-                                Text(interest.name)
-                                    .font(.system(size: 20, weight: .bold))
-                                    .foregroundColor(.white)
-                            }
+                            Text(interest.name)
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(.white)
                         }
                     }
                 }
             }
+        }
+        
+        Button(action: {
+            let selected = selectedInterests.filter { $0.value }.map { $0.key }
+            print("\(selected)")
+        }) {
+            Text("선택 완료")
+                .font(.system(size: 20, weight: .bold))
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity, minHeight: 60)
+                .background(Color.red)
+                .cornerRadius(10)
+                .padding(.horizontal, 25)
+                .padding(.top, 40)
         }
         Spacer()
     }
