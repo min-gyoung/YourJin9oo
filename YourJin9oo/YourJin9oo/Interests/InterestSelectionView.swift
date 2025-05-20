@@ -63,11 +63,12 @@ public struct InterestSelectionView: View {
                 .font(.system(size: 20, weight: .bold))
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity, minHeight: 60)
-                .background(Color.red)
+                .background(selectedInterests.values.contains(true) ? Color.red : Color.gray)
                 .cornerRadius(10)
                 .padding(.horizontal, 25)
                 .padding(.top, 40)
         }
+        .disabled(!selectedInterests.values.contains(true))
         Spacer()
     }
 }
