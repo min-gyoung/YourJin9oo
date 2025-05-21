@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct CreatePostView: View {
-    @State private var selectedCategory: String? = nil
+    @State private var selectedCategory: Category? = nil
     @State private var title: String = ""
     @State private var content: String = ""
     
-    let categories = ["스포츠", "맛집", "생활", "건강", "취미", "배움"]
+    let categories: [Category] = [
+        Category(name: "스포츠", iconName: "dumbbell.fill"),
+        Category(name: "맛집", iconName: "birthday.cake.fill"),
+        Category(name: "생활", iconName: "leaf.fill"),
+        Category(name: "건강", iconName: "heart.fill"),
+        Category(name: "취미", iconName: "music.note"),
+        Category(name: "배움", iconName: "books.vertical.fill")
+    ]
     
     let columns = [
         GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())
@@ -27,20 +34,23 @@ struct CreatePostView: View {
                     .padding(.bottom, 2)
                 
                 LazyVGrid(columns: columns, spacing: 12) {
-                    ForEach(categories, id: \.self) { category in
-                        Button(action: {
+                    ForEach(categories) { category in
+                        
+                        Button {
                             selectedCategory = category
-                        }) {
-                            Text(category)
+                        } label: {
+                            Label(category.name, systemImage: category.iconName)
                                 .padding()
                                 .frame(maxWidth: .infinity)
-                                .background(selectedCategory == category ? Color.gray.opacity(0.4) : Color.gray.opacity(0.2))
-                                .foregroundColor(.black)
+                                .background(selectedCategory == category ? Color("SelectedCategoryColor") : Color("UnselectedCategoryColor"))
+                                .foregroundColor(.white)
                                 .cornerRadius(5)
                         }
+                        .padding(.bottom, 10)
+                        
                     }
                 }
-                .padding(.bottom, 10)
+                
                 
                 TextField("글 제목을 작성해주세요.", text: $title)
                     .padding()
@@ -72,6 +82,12 @@ struct CreatePostView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
     }
+}
+
+struct Category: Identifiable, Equatable {
+    let id = UUID()
+    let name: String
+    let iconName: String
 }
 
 #Preview {
