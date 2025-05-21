@@ -29,7 +29,8 @@ struct CreatePostView: View {
         NavigationStack {
             VStack(alignment: .leading, spacing: 18) {
                 Text("어떤 분야의 문제인가요?")
-                    .font(.headline)
+                    .font(.system(size: 16, weight: .regular))
+                    .foregroundStyle(Color("DetailTextColor"))
                     .padding(.top, 26)
                     .padding(.bottom, 2)
                 
@@ -47,20 +48,21 @@ struct CreatePostView: View {
                                 .cornerRadius(5)
                         }
                         .padding(.bottom, 10)
-                        
                     }
                 }
                 
                 
                 TextField("글 제목을 작성해주세요.", text: $title)
                     .padding()
-                    .background(Color(.systemGray6))
+                    .foregroundStyle(Color("DetailTextColor"))
+                    .background(Color("TextFieldColor"))
                     .cornerRadius(5)
                 
                 TextField("내용을 작성해주세요.", text: $content, axis: .vertical)
                     .lineLimit(6...15)
                     .padding()
-                    .background(Color(.systemGray6))
+                    .foregroundStyle(Color("DetailTextColor"))
+                    .background(Color("TextFieldColor"))
                     .cornerRadius(5)
                 
                 Spacer()
@@ -70,16 +72,22 @@ struct CreatePostView: View {
                 } label: {
                     Text("작성 완료")
                         .font(.system(size: 20, weight: .bold))
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .frame(maxWidth: .infinity)
                         .frame(height: 60)
-                        .background(Color.red.opacity(0.9)) //FF7866로 수정 필요
+                        .background(Color("AccentColor"))
                         .cornerRadius(16)
                 }
             }
             .padding()
-            .navigationTitle("도움 요청")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("도움 요청")
+                        .font(.system(size: 20, weight: .medium))
+                        .foregroundStyle(Color("SubTextColor"))
+                }
+            }
         }
     }
 }
