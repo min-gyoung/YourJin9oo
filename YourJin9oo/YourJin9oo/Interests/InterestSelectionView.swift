@@ -32,7 +32,6 @@ public struct InterestSelectionView: View {
             .multilineTextAlignment(.center)
         
         Spacer()
-<<<<<<< HEAD
         
         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: -60), count: 2), spacing: 15) {
             ForEach(interestList, id: \.name) { interest in
