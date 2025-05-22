@@ -26,13 +26,8 @@ struct RequestHelpView: View {
             
             ZStack(alignment: .leading) {
                 RoundedRectangle(cornerRadius: 10)
-<<<<<<< HEAD
                     .fill(Color("TextFieldColor"))
                     .stroke(Color("SelectedTagColor"), lineWidth: 1)
-=======
-//                    .fill(Color(hex: "#F3F3F3"))
-//                    .stroke(Color(hex: "#E9E9E9"), lineWidth: 1)
->>>>>>> main
                     .frame(height: 140)
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
@@ -40,11 +35,7 @@ struct RequestHelpView: View {
                     HStack {
                         ZStack {
                             RoundedRectangle(cornerRadius: 4)
-<<<<<<< HEAD
                                 .fill(Color("AccentColor"))
-=======
-//                                .fill(Color(hex: "#FF7866"))
->>>>>>> main
                                 .frame(width: 54, height: 20)
                             
                             Text("매칭중")
@@ -79,20 +70,12 @@ struct RequestHelpView: View {
                         
                         ZStack{
                             RoundedRectangle(cornerRadius: 10)
-<<<<<<< HEAD
                                 .fill(Color("UnselectedTagColor"))
-=======
-//                                .fill(Color(hex: "#DBDBDB"))
->>>>>>> main
                                 .frame(width: 60, height: 24)
                             
                             Text("스포츠")
                                 .font(.system(size: 14))
-<<<<<<< HEAD
                                 .foregroundColor(Color("SubTextColor"))
-=======
-//                                .foregroundColor(Color(hex: "#666666"))
->>>>>>> main
                         }
                         .padding(.trailing, 40)
                     }
@@ -111,13 +94,8 @@ struct RequestHelpView: View {
             ScrollView {
                 ZStack(alignment: .leading) {
                     RoundedRectangle(cornerRadius: 10)
-<<<<<<< HEAD
                         .fill(Color("TextFieldColor"))
                         .stroke(Color("SelectedTagColor"), lineWidth: 1)
-=======
-//                        .fill(Color(hex: "#F3F3F3"))
-//                        .stroke(Color(hex: "#E9E9E9"), lineWidth: 1)
->>>>>>> main
                         .frame(height: 140)
                         .padding(.leading, 20)
                         .padding(.trailing, 20)
@@ -126,11 +104,7 @@ struct RequestHelpView: View {
                         HStack {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 4)
-<<<<<<< HEAD
                                     .fill(Color("SelectedTagColor"))
-=======
-//                                    .fill(Color(hex: "#A6A6A6"))
->>>>>>> main
                                     .frame(width: 54, height: 20)
                                 
                                 Text("매칭완")
@@ -160,20 +134,12 @@ struct RequestHelpView: View {
                             
                             ZStack{
                                 RoundedRectangle(cornerRadius: 10)
-<<<<<<< HEAD
                                     .fill(Color("UnselectedTagColor"))
-=======
-//                                    .fill(Color(hex: "#DBDBDB"))
->>>>>>> main
                                     .frame(width: 60, height: 24)
                                 
                                 Text("스포츠")
                                     .font(.system(size: 14))
-<<<<<<< HEAD
                                     .foregroundColor(Color("SubTextColor"))
-=======
-//                                    .foregroundColor(Color(hex: "#666666"))
->>>>>>> main
                             }
                             .padding(.trailing, 40)
                         }
@@ -186,11 +152,7 @@ struct RequestHelpView: View {
                     .font(.system(size: 24, weight: .bold))
                     .foregroundColor(.white)
                     .frame(width: 150, height: 60)
-<<<<<<< HEAD
                     .background(Color("AccentColor"))
-=======
-//                    .background(Color(hex:"#FF7866"))
->>>>>>> main
                     .cornerRadius(20)
                     .padding(.leading, 200)
                     .padding(.bottom, 10)
