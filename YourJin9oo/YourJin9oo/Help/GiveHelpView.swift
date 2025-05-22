@@ -9,7 +9,7 @@ import SwiftUI
 
 public struct GiveHelpView: View {
     let categories = ["전체", "디자인", "개발", "스포츠"]
-
+    
     public var body: some View {
         VStack {
             Text("도움 주기")
@@ -44,8 +44,8 @@ public struct GiveHelpView: View {
             
             ZStack(alignment: .leading) {
                 RoundedRectangle(cornerRadius: 10)
-//                    .fill(Color(hex: "#F3F3F3"))
-//                    .stroke(Color(hex: "#E9E9E9"), lineWidth: 1)
+                    .fill(Color("TextFieldColor"))
+                    .stroke(Color("SelectedTagColor"), lineWidth: 1)
                     .frame(height: 140)
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
@@ -53,7 +53,7 @@ public struct GiveHelpView: View {
                     HStack {
                         ZStack {
                             RoundedRectangle(cornerRadius: 4)
-//                                .fill(Color(hex: "#A6A6A6"))
+                                .fill(Color("SelectedTagColor"))
                                 .frame(width: 54, height: 20)
                             
                             Text("매칭완")
@@ -83,12 +83,11 @@ public struct GiveHelpView: View {
                         
                         ZStack{
                             RoundedRectangle(cornerRadius: 10)
-//                                .fill(Color(hex: "#DBDBDB"))
-                                .frame(width: 60, height: 24)
+                                .fill(Color("UnselectedTagColor"))                                .frame(width: 60, height: 24)
                             
                             Text("스포츠")
                                 .font(.system(size: 14))
-//                                .foregroundColor(Color(hex: "#666666"))
+                                .foregroundColor(Color("SubTextColor"))
                         }
                         .padding(.trailing, 40)
                     }
