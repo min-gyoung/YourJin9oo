@@ -16,13 +16,13 @@ public struct InterestSelectionView: View {
     public var body: some View {
         Text("당신의 관심분야는 뭔가요?")
             .font(.system(size: 24, weight: .bold))
-        //            .foregroundColor(Color(hex: "#666666"))
+            .foregroundColor(Color("SubTextColor"))
             .padding(.bottom, 10)
             .padding(.top, 80)
         
         Text("다른 사람에게 도움 줄 수 있는\n분야를 골라주세요.")
             .font(.system(size: 14))
-        //            .foregroundColor(Color(hex: "#666666"))
+            .foregroundColor(Color("SubTextColor"))
             .multilineTextAlignment(.center)
         
         Spacer()
@@ -31,18 +31,18 @@ public struct InterestSelectionView: View {
         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: -60), count: 2), spacing: 15) {
             ForEach(interestList, id: \.name) { interest in
                 Button(action: {
+                    selectedInterests[interest.name] = !(selectedInterests[interest.name] ?? false)
                     print("\(interest.name)")
                 } ) {
                     VStack {
                         ZStack {
                             RoundedRectangle (cornerRadius: 16)
-                                .fill(Color.gray)
-                            //                            .fill(Color(hex: "#D9D9D9"))
+                                .fill(
+                                    selectedInterests[interest.name] == true ?
+                                    Color("SelectedCategoryColor") :
+                                        Color("UnselectedCategoryColor")
+                                )
                                 .frame(width: 150, height: 150)
-                            //                            .overlay(
-                            //                                Text(interest)
-                            //                                    .foregroundColor(.black)
-                            //                            )
                             
                             VStack {
                                 Image(systemName: interest.icon)
@@ -69,7 +69,9 @@ public struct InterestSelectionView: View {
                 .font(.system(size: 20, weight: .bold))
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity, minHeight: 60)
-                .background(selectedInterests.values.contains(true) ? Color.red : Color.gray)
+                .background(
+                    selectedInterests.values.contains(true) ? Color("AccentColor") : Color("UnselectedCategoryColor")
+                )
                 .cornerRadius(10)
                 .padding(.horizontal, 25)
                 .padding(.top, 40)
