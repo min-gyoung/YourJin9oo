@@ -4,13 +4,9 @@ public struct ContentView: View {
     public init() {}
 
     public var body: some View {
-<<<<<<< HEAD
         VStack {
             Text("Hello, World!")
         }
-=======
-//        TabBarView()
->>>>>>> main
     }
 }
 
