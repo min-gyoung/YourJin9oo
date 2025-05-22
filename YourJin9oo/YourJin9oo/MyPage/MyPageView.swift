@@ -9,21 +9,15 @@ import SwiftUI
 struct MyPageView: View {
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading, spacing: 0) {
-                Text("마이페이지")
-                    .font(.system(size: 28, weight: .medium))
-                    .foregroundStyle(Color("MainTextColor"))
-                    .padding(.horizontal, 16)
-                    .padding(.top, 55)
-                    .padding(.bottom, 28)
-                
-                MyPageButton(title: "감사편지 모아보기", frameheight: 63)
-                    .background(
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(Color("MyPageColor"))
-                    )
-                    .padding(.horizontal, 16)
-                    .padding(.bottom, 24)
+            VStack {
+                MyPageButton(title: "감사편지 모아보기")
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(Color(UIColor.systemGray6))
+                )
+                .padding(.horizontal)
+                .padding(.top, 24)
+                .padding(.bottom, 24)
                 
                 VStack(spacing: 0) {
                     MyPageButton(title: "관심분야 수정")
@@ -32,30 +26,29 @@ struct MyPageView: View {
                     Divider()
                     MyPageButton(title: "만든 사람들")
                 }
-                .frame(height: 180)
                 .background(
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(Color("MyPageColor"))
+                        .fill(Color(UIColor.systemGray6))
                 )
-                .padding(.horizontal, 16)
+                .padding(.horizontal)
                 .padding(.bottom, 24)
                 
                 VStack(spacing: 0) {
-                    MyPageButton(title: "로그아웃", color: Color("RedColor"))
+                    MyPageButton(title: "로그아웃", color: .red)
                     Divider()
-                    MyPageButton(title: "회원탈퇴", frameheight: 60, color: Color("RedColor"))
+                    MyPageButton(title: "회원탈퇴", color: .red)
                 }
-                .frame(height: 121)
                 .background(
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(Color("MyPageColor"))
+                        .fill(Color(UIColor.systemGray6))
                 )
-                .padding(.horizontal, 16)
+                .padding(.horizontal)
                 
                 Spacer()
                 
             }
         }
+        .navigationTitle("마이페이지")
     }
 }
 
@@ -64,9 +57,7 @@ struct MyPageView: View {
 
 struct MyPageButton: View {
     let title: String
-    var frameheight: Int = 60
-    var color: Color = Color("MainTextColor")
-    
+    var color: Color = .black
     
     var body: some View {
         Button {
@@ -78,11 +69,10 @@ struct MyPageButton: View {
                 Spacer()
             }
             .padding(.leading, 28)
-            .frame(height: CGFloat(frameheight))
+            .frame(height: 60)
         }
     }
 }
-
 
 
 
