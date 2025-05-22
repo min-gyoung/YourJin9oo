@@ -26,8 +26,10 @@ let project = Project(
             destinations: .iOS,
             product: .app,
             bundleId: "io.YourJin9oo",
+            deploymentTargets: .iOS("17.0"),
             infoPlist: .extendingDefault(
                 with: [
+                  "UIUserInterfaceStyle": "Light",
                     "UILaunchScreen": [
                         "UIColorName": "",
                         "UIImageName": "",
