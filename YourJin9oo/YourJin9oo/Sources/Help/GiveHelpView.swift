@@ -46,8 +46,6 @@ public struct GiveHelpView: View {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color("TextFieldColor"))
                     .stroke(Color("SelectedTagColor"), lineWidth: 1)
-//                    .fill(Color(hex: "#F3F3F3"))
-//                    .stroke(Color(hex: "#E9E9E9"), lineWidth: 1)
                     .frame(height: 140)
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
@@ -56,7 +54,6 @@ public struct GiveHelpView: View {
                         ZStack {
                             RoundedRectangle(cornerRadius: 4)
                                 .fill(Color("SelectedTagColor"))
-//                                .fill(Color(hex: "#A6A6A6"))
                                 .frame(width: 54, height: 20)
                             
                             Text("매칭완")
@@ -91,12 +88,6 @@ public struct GiveHelpView: View {
                             Text("스포츠")
                                 .font(.system(size: 14))
                                 .foregroundColor(Color("SubTextColor"))
-//                                .fill(Color(hex: "#DBDBDB"))
-                                .frame(width: 60, height: 24)
-                            
-                            Text("스포츠")
-                                .font(.system(size: 14))
-//                                .foregroundColor(Color(hex: "#666666"))
                         }
                         .padding(.trailing, 40)
                     }
