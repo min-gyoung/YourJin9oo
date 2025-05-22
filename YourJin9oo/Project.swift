@@ -1,5 +1,23 @@
 import ProjectDescription
 
+let swiftLintScript = TargetScript.pre(
+    script: """
+    # Type a script or drag a script file from your workspace to insert its path.
+    if [[ "$(uname -m)" == arm64 ]]; then
+        export PATH="$HOME/.local/share/mise/shims:$PATH"
+    fi
+     echo "SwiftLint path: $(which swiftlint)"
+    if which swiftlint > /dev/null; then
+      swiftlint
+    else
+      echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+    fi
+  
+  """,
+    name: "SwiftLint",
+    basedOnDependencyAnalysis: true
+)
+
 let project = Project(
     name: "YourJin9oo",
     targets: [
@@ -18,7 +36,19 @@ let project = Project(
             ),
             sources: ["YourJin9oo/Sources/**"],
             resources: ["YourJin9oo/Resources/**"],
-            dependencies: []
+            dependencies: [
+                .external(name: "Moya"),
+                .external(name: "ComposableArchitecture")
+            ],
+            settings: .settings(
+                base: ["DEVELOPMENT_TEAM": "CCQV8W4QU6",
+                       "CODE_SIGN_IDENTITY": "Apple Development",
+                       "CODE_SIGN_STYLE": "Manual",
+                       "PROVISIONING_PROFILE_SPECIFIER": "jingoov2"
+                      ],
+                configurations: [],
+                defaultSettings: .recommended
+            )
         ),
         .target(
             name: "YourJin9ooTests",
