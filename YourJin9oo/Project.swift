@@ -38,6 +38,7 @@ let project = Project(
             ),
             sources: ["YourJin9oo/Sources/**"],
             resources: ["YourJin9oo/Resources/**"],
+            entitlements: "YourJin9ooDebug.entitlements",
             scripts: [swiftLintScript],
             dependencies: [
               .external(name: "Moya"),
