@@ -10,7 +10,7 @@ import SwiftUI
 struct RequestHelpView: View {
     
     var body: some View {
-            
+        
         VStack {
             Text("도움 요청")
                 .font(.system(size: 28, weight: .bold))
@@ -26,8 +26,8 @@ struct RequestHelpView: View {
             
             ZStack(alignment: .leading) {
                 RoundedRectangle(cornerRadius: 10)
-//                    .fill(Color(hex: "#F3F3F3"))
-//                    .stroke(Color(hex: "#E9E9E9"), lineWidth: 1)
+                    .fill(Color("TextFieldColor"))
+                    .stroke(Color("SelectedTagColor"), lineWidth: 1)
                     .frame(height: 140)
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
@@ -35,7 +35,7 @@ struct RequestHelpView: View {
                     HStack {
                         ZStack {
                             RoundedRectangle(cornerRadius: 4)
-//                                .fill(Color(hex: "#FF7866"))
+                                .fill(Color("AccentColor"))
                                 .frame(width: 54, height: 20)
                             
                             Text("매칭중")
@@ -70,12 +70,12 @@ struct RequestHelpView: View {
                         
                         ZStack{
                             RoundedRectangle(cornerRadius: 10)
-//                                .fill(Color(hex: "#DBDBDB"))
+                                .fill(Color("UnselectedTagColor"))
                                 .frame(width: 60, height: 24)
                             
                             Text("스포츠")
                                 .font(.system(size: 14))
-//                                .foregroundColor(Color(hex: "#666666"))
+                                .foregroundColor(Color("SubTextColor"))
                         }
                         .padding(.trailing, 40)
                     }
@@ -94,8 +94,8 @@ struct RequestHelpView: View {
             ScrollView {
                 ZStack(alignment: .leading) {
                     RoundedRectangle(cornerRadius: 10)
-//                        .fill(Color(hex: "#F3F3F3"))
-//                        .stroke(Color(hex: "#E9E9E9"), lineWidth: 1)
+                        .fill(Color("TextFieldColor"))
+                        .stroke(Color("SelectedTagColor"), lineWidth: 1)
                         .frame(height: 140)
                         .padding(.leading, 20)
                         .padding(.trailing, 20)
@@ -104,7 +104,7 @@ struct RequestHelpView: View {
                         HStack {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 4)
-//                                    .fill(Color(hex: "#A6A6A6"))
+                                    .fill(Color("SelectedTagColor"))
                                     .frame(width: 54, height: 20)
                                 
                                 Text("매칭완")
@@ -134,12 +134,12 @@ struct RequestHelpView: View {
                             
                             ZStack{
                                 RoundedRectangle(cornerRadius: 10)
-//                                    .fill(Color(hex: "#DBDBDB"))
+                                    .fill(Color("UnselectedTagColor"))
                                     .frame(width: 60, height: 24)
                                 
                                 Text("스포츠")
                                     .font(.system(size: 14))
-//                                    .foregroundColor(Color(hex: "#666666"))
+                                    .foregroundColor(Color("SubTextColor"))
                             }
                             .padding(.trailing, 40)
                         }
@@ -152,7 +152,7 @@ struct RequestHelpView: View {
                     .font(.system(size: 24, weight: .bold))
                     .foregroundColor(.white)
                     .frame(width: 150, height: 60)
-//                    .background(Color(hex:"#FF7866"))
+                    .background(Color("AccentColor"))
                     .cornerRadius(20)
                     .padding(.leading, 200)
                     .padding(.bottom, 10)
