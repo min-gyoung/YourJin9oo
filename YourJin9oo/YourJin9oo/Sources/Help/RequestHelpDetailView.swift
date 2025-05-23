@@ -29,7 +29,7 @@ public struct RequestHelpDetailView: View {
     .padding()
     
     Divider()
-    .padding(.bottom, 30)
+      .padding(.bottom, 30)
     
     // 요청 내용
     ZStack {
@@ -56,7 +56,7 @@ public struct RequestHelpDetailView: View {
       .frame(maxWidth: .infinity, alignment: .leading)
       .foregroundColor(Color("SubTextColor"))
       .padding(.leading, 17)
-
+    
     HStack {
       Text("1일 전 • 조회 999")
         .font(.system(size: 16))
@@ -86,8 +86,20 @@ public struct RequestHelpDetailView: View {
       .padding(.trailing, 40)
     }
     Spacer()
+    
+    Button(action: {}) {
+      Text("도움 주기")
+        .font(.system(size: 20, weight: .bold))
+        .foregroundColor(.white)
+        .frame(maxWidth: .infinity, minHeight: 60)
+        .background(Color("AccentColor"))
+        .cornerRadius(10)
+        .padding(.horizontal, 25)
+        .padding(.top, 40)
+    }
   }
 }
+
 #Preview {
   RequestHelpDetailView()
 }
