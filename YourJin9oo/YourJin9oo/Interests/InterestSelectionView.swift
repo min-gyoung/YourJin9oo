@@ -21,24 +21,14 @@ public struct InterestSelectionView: View {
     
     public var body: some View {
         Text("당신의 관심분야는 뭔가요?")
-<<<<<<< HEAD
-            .font(.system(size: 24))
-            .fontWeight(.bold)
-//            .foregroundColor(Color(hex: "#666666"))
-=======
             .font(.system(size: 24, weight: .bold))
             .foregroundColor(Color("SubTextColor"))
->>>>>>> main
             .padding(.bottom, 10)
             .padding(.top, 80)
         
         Text("다른 사람에게 도움 줄 수 있는\n분야를 골라주세요.")
             .font(.system(size: 14))
-<<<<<<< HEAD
-//            .foregroundColor(Color(hex: "#666666"))
-=======
             .foregroundColor(Color("SubTextColor"))
->>>>>>> main
             .multilineTextAlignment(.center)
         
         Spacer()
@@ -50,15 +40,6 @@ public struct InterestSelectionView: View {
                     print("\(interest.name)")
                 } ) {
                     VStack {
-<<<<<<< HEAD
-                        RoundedRectangle (cornerRadius: 16)
-//                            .fill(Color(hex: "#D9D9D9"))
-                            .frame(width: 150, height: 150)
-                            .overlay(
-                                Text(interest)
-                                    .foregroundColor(.black)
-                            )
-=======
                         ZStack {
                             RoundedRectangle (cornerRadius: 16)
                                 .fill(
@@ -80,7 +61,6 @@ public struct InterestSelectionView: View {
                                     .foregroundColor(.white)
                             }
                         }
->>>>>>> main
                     }
                 }
             }

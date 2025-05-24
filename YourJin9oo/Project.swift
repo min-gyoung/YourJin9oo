@@ -12,7 +12,6 @@ let swiftLintScript = TargetScript.pre(
     else
       echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
     fi
-
   """,
   name: "SwiftLint",
   basedOnDependencyAnalysis: true
