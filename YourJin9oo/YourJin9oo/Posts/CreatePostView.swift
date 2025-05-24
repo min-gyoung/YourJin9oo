@@ -31,12 +31,11 @@ struct CreatePostView: View {
                 Text("어떤 분야의 문제인가요?")
                     .font(.system(size: 16, weight: .regular))
                     .foregroundStyle(Color("DetailTextColor"))
-                    .padding(.top, 26)
+                    .padding(.top, 8)
                     .padding(.bottom, 2)
                 
-                LazyVGrid(columns: columns, spacing: 12) {
+                LazyVGrid(columns: columns, spacing: 13) {
                     ForEach(categories) { category in
-                        
                         Button {
                             selectedCategory = category
                         } label: {
@@ -47,9 +46,10 @@ struct CreatePostView: View {
                                 .foregroundColor(.white)
                                 .cornerRadius(5)
                         }
-                        .padding(.bottom, 10)
+                        .padding(.bottom, 0)
                     }
                 }
+                .padding(.horizontal, 2)
                 
                 
                 TextField("글 제목을 작성해주세요.", text: $title)
@@ -77,9 +77,10 @@ struct CreatePostView: View {
                         .frame(height: 60)
                         .background(Color("AccentColor"))
                         .cornerRadius(16)
+                        .padding(.horizontal, 2)
                 }
             }
-            .padding()
+            .padding(16)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
