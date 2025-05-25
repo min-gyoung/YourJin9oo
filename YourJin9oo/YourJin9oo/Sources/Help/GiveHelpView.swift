@@ -8,6 +8,9 @@
 import SwiftUI
 
 public struct GiveHelpView: View {
+  @State private var category: [Category] = Category.allCases
+  @State private var selectedCategory: Category = .all
+  
   private let handler = GiveHelpModel()
   
   public var body: some View {
@@ -18,14 +21,16 @@ public struct GiveHelpView: View {
         .padding(.leading, 20)
         .padding(.bottom, 16)
         .padding(.top, 20)
+      
       ScrollView(.horizontal, showsIndicators: false) {
         HStack {
-          ForEach(Category.allCases, id: \.self) { category in
+          ForEach(category, id: \.self) { category in
             Button(action:{
+              print("\(category.displayName)")
+              selectedCategory = category
+              reCategory(toFront: category)
               handler.handleCategorySelection(category)
             }) {
-              Spacer()
-              
               Text(category.displayName)
                 .font(.system(size: 16))
                 .foregroundColor(Color("SubTextColor"))
@@ -34,7 +39,19 @@ public struct GiveHelpView: View {
                   RoundedRectangle(cornerRadius: 20)
                     .fill(Color("UnselectedTagColor"))
                 )
+                .overlay(
+                  RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.gray, lineWidth: 1)
+                )
                 .cornerRadius(20)
+            }
+            
+            // 구분선
+            if category == selectedCategory {
+              Rectangle()
+                .fill(Color.gray)
+                .frame(width: 1, height: 20)
+                .padding(.horizontal, 4)
             }
           }
         }
@@ -97,6 +114,11 @@ public struct GiveHelpView: View {
       }
       Spacer()
     }
+  }
+  
+  private func reCategory(toFront selected: Category) {
+    category.removeAll(where: { $0 == selected })
+    category.insert(selected, at: 0)
   }
 }
 
