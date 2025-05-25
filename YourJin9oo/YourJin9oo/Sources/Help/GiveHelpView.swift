@@ -12,29 +12,30 @@ public struct GiveHelpView: View {
   
   public var body: some View {
     VStack {
-      Text("도와 주기")
+      Text("도와주기")
         .font(.system(size: 28, weight: .bold))
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.leading, 20)
         .padding(.bottom, 16)
         .padding(.top, 20)
-      
-      HStack {
-        ForEach(Category.allCases, id: \.self) { category in
-          Button(action:{
-            handler.handleCategorySelection(category)
-          }) {
-            Spacer()
-            
-            Text(category.displayName)
-              .font(.system(size: 16))
-              .foregroundColor(.black)
-              .frame(maxWidth: .infinity, minHeight: 34)
-              .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                  .stroke(Color.gray, lineWidth: 1)
-              )
-              .cornerRadius(20)
+      ScrollView(.horizontal, showsIndicators: false) {
+        HStack {
+          ForEach(Category.allCases, id: \.self) { category in
+            Button(action:{
+              handler.handleCategorySelection(category)
+            }) {
+              Spacer()
+              
+              Text(category.displayName)
+                .font(.system(size: 16))
+                .foregroundColor(Color("SubTextColor"))
+                .frame(width: 67, height: 34)
+                .background(
+                  RoundedRectangle(cornerRadius: 20)
+                    .fill(Color("UnselectedTagColor"))
+                )
+                .cornerRadius(20)
+            }
           }
         }
       }
@@ -98,6 +99,7 @@ public struct GiveHelpView: View {
     }
   }
 }
+
 #Preview {
   GiveHelpView()
 }

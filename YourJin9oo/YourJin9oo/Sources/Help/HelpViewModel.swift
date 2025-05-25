@@ -9,9 +9,12 @@ import Foundation
 
 enum Category: String, CaseIterable {
   case all = "전체"
-  case design = "디자인"
-  case development = "개발"
   case sports = "스포츠"
+  case food = "맛집"
+  case life = "생활"
+  case learn = "배움"
+  case hobby = "취미"
+  case health = "건강"
   
   var displayName: String {
     switch self {
@@ -29,12 +32,18 @@ final class GiveHelpModel {
     switch category {
     case .all:
       handleAll()
-    case .design:
-      handleDesign()
-    case .development:
-      handleDev()
     case .sports:
       handleSports()
+    case .food:
+      handleFood()
+    case .life:
+      handleLife()
+    case .learn:
+      handleLearn()
+    case .hobby:
+      handleHobby()
+    case .health:
+      handleHealth()
     }
   }
   
@@ -42,15 +51,27 @@ final class GiveHelpModel {
     
   }
   
-  private func handleDesign() {
-    
-  }
-  
-  private func handleDev() {
-    
-  }
-  
   private func handleSports() {
+    
+  }
+  
+  private func handleFood() {
+    
+  }
+  
+  private func handleLife() {
+    
+  }
+  
+  private func handleLearn() {
+    
+  }
+  
+  private func handleHobby() {
+    
+  }
+  
+  private func handleHealth() {
     
   }
 }
