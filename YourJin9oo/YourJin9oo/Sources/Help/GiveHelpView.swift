@@ -10,6 +10,7 @@ import SwiftUI
 public struct GiveHelpView: View {
   @State private var category: [Category] = Category.allCases
   @State private var selectedCategory: Category = .all
+  @State private var navigateToRequestDetail = false
   
   private let handler = GiveHelpModel()
   
@@ -17,6 +18,7 @@ public struct GiveHelpView: View {
     VStack {
       Text("도와주기")
         .font(.system(size: 28, weight: .bold))
+        .foregroundColor(Color("MainTextColor"))
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.leading, 20)
         .padding(.bottom, 16)
@@ -34,14 +36,14 @@ public struct GiveHelpView: View {
               Text(category.displayName)
                 .font(.system(size: 16))
                 .foregroundColor(Color("SubTextColor"))
-                .frame(width: 67, height: 34)
+                .frame(width: 67, height: 27)
                 .background(
                   RoundedRectangle(cornerRadius: 20)
                     .fill(Color("UnselectedTagColor"))
                 )
                 .overlay(
                   RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.gray, lineWidth: 1)
+                    .stroke(Color("UnselectedTagColor"), lineWidth: 1)
                 )
                 .cornerRadius(20)
             }
@@ -55,6 +57,7 @@ public struct GiveHelpView: View {
             }
           }
         }
+        .padding(.leading, 10)
       }
       .padding(.leading, 10)
       .padding(.trailing, 10)
@@ -63,7 +66,7 @@ public struct GiveHelpView: View {
       ZStack(alignment: .leading) {
         RoundedRectangle(cornerRadius: 10)
           .fill(Color("TextFieldColor"))
-          .stroke(Color("SelectedTagColor"), lineWidth: 1)
+          .stroke(Color("TextFieldColor"), lineWidth: 1)
           .frame(height: 140)
           .padding(.leading, 20)
           .padding(.trailing, 20)
@@ -113,6 +116,29 @@ public struct GiveHelpView: View {
         }
       }
       Spacer()
+      
+      HStack {
+        Spacer()
+        
+        Button(action: {
+          navigateToRequestDetail = true
+        }) {
+          ZStack {
+            Circle()
+              .fill(Color("AccentColor"))
+              .frame(width: 65, height: 65)
+            
+            Image(systemName: "plus")
+              .font(.system(size: 24, weight: .bold))
+              .foregroundColor(.white)
+          }
+        }
+        .navigationDestination(isPresented: $navigateToRequestDetail) {
+          RequestHelpDetailView()
+        }
+        .padding(.trailing, 30)
+        .padding(.bottom, 30)
+      }
     }
   }
   
